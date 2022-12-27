@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tüm Kullanıcılar</title>
+    <link class="rounded-full" rel="shortcut icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg/220px-Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg"
+        type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="flex w-500 mx-auto p-10 ">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Ad-Soyad</th>
+                <th>Rol</th>
+                <th>Cinsiyet</th>
+                <th>Email</th>
+                <th>Doğum Tarihi</th>
+                <th>Şifre</th>
+                <hr class="border-3 border-red-300 cursor-pointer hover:border-red-500 duration-500">
+            </tr>
+            <tr th:each="kullanici : ${tumKullanicilar}">
+                <td th:text="${kullanici.id}"></td>
+                <td th:text="${kullanici.username}"></td>
+                <td th:text="${kullanici.role}"></td>
+                <td th:text="${kullanici.gender}"></td>
+                <td th:text="${kullanici.email}"></td>
+                <td th:text="${kullanici.localDate}"></td>
+                <td th:text="${kullanici.password}"></td>
+
+            </tr>
+        </table>
+    </div>
+    <div class="flex border-4 hover:bg-blue-100 ">
+        <a class="py-100 mx-auto text-2xl " href="/home">AnaSayfa</a>
+    </div>
+    <br>
+    <div class="flex border-4 hover:bg-red-100 ">
+        <a class="py-100 mx-auto text-2xl " href="/logout">Oturumu Kapat</a>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yorumlar</title>
+    <link class="rounded-full" rel="shortcut icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg/220px-Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg"
+        type="image/x-icon">
+</head>
+
+<body>
+    <h1 class="text-5xl text-center" th:text="${konuAdi}">!!!</h1>
+    <div th:each="yorum : ${yorumlar}" class="bg-green-100 p-5 m-5 rounded border-dashed border-slate-700 border-2">
+        <div >
+            <span class="text-2xl">Yorum : <p th:text="${yorum.text}"></p> </span>
+            <hr>
+            <span class="text-1xl">Yorumu yapan : <p th:text="${yorum.user.username}"></p> </span>
+            <hr>
+            <span class="text-1xl">Yorum id : <p th:text="${yorum.id}"></p> </span>
+            <hr>
+            <a th:href="@{/deleteYorum/{id}  (id = ${yorum.id}) }">Yorumu sil...
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 hover:fill-red-500">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                </svg>
+            </a>
+        </div>
+
+    </div>
+    <div class="flex border-4 hover:bg-blue-100 ">
+        <a class="py-100 mx-auto text-2xl " href="/home">AnaSayfa</a>
+    </div>
+    <br>
+    <div class="flex border-4 hover:bg-red-100 ">
+        <a class="py-100 mx-auto text-2xl " href="/logout">Oturumu Kapat</a>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</body>
+
+</html>

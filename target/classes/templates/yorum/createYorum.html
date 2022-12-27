@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <style>
+    html,
+    body {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+    }
+
+    body,
+    div,
+    h1,
+    form,
+    input {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+      color: #666;
+    }
+
+    h1 {
+      padding: 10px 0;
+      font-size: 32px;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .main-block {
+      max-width: 340px;
+      min-height: 460px;
+      padding: 10px 0;
+      margin: auto;
+      border-radius: 5px;
+      border: solid 1px #ccc;
+      box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
+      background: #ebebeb;
+    }
+
+    form {
+      margin: 0 30px;
+    }
+
+    input[type=text] {
+      row-gap: 200px;
+      column-gap: 200px;
+      width: 200px;
+      height: 100px;
+      margin: 20px 0 0 -5px;
+      padding-left: 10px;
+      padding-right: -5px;
+      border-radius: 0 5px 5px 0;
+      border: solid 1px #cbc9c9;
+      box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
+      background: #fff;
+    }
+
+    .btn-block {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px 0;
+      margin: 10px auto;
+      border-radius: 5px;
+      border: none;
+      background: #1c87c9;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    button:hover {
+      background: #26a9e0;
+    }
+  </style>
+  <title>Yeni Yorum</title>
+  <link class="rounded-full" rel="shortcut icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg/220px-Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg"
+        type="image/x-icon">
+</head>
+
+<body>
+  <div class="main-block">
+    <h1>Yeni Yorum</h1>
+    <form action="/saveYorum" method="post" th:object="${yeniYorum}">
+
+      <input type="text" th:field="*{text}" placeholder="Yorumunuzu buraya yazınız" required />
+      <div class="btn-block">
+        <button type="submit" href="">Kaydet</button>
+      </div>
+    </form>
+  </div>
+  <div class="flex border-4 hover:bg-blue-100 ">
+    <a class="py-100 mx-auto text-2xl " href="/home">Ana Sayfa</a>
+  </div>
+</body>
+
+</html>

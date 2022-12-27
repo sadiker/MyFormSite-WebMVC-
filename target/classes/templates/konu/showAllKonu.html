@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konular</title>
+    <link class="rounded-full" rel="shortcut icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg/220px-Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg"
+        type="image/x-icon">
+</head>
+
+<body>
+    <div th:each="konu : ${konular}" class="bg-green-100  m-5 rounded border-dashed border-slate-700 border-2">
+        <h1 class="text-3xl text-center" th:text="${konu.name}">saS</h1>
+
+        <div class=" flex justify-between p-1 ">
+            <span class="text-1xl">Konuyu açan : <p th:text="${konu.user.username}"></p> </span>
+            <a class="text-1xl" th:href="@{/createYorum/{id} (id = ${konu.id}) }">Sen de yorum yaz..
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 hover:fill-blue-500 ">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                </svg>
+            </a>
+        </div>
+        <div flex class=" flex justify-end ">
+            <a class="text-1xl" th:href="@{/showKonu/{id} (id = ${konu.id}) }">Yorumlara bak..
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 hover:fill-yellow-500">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+            </a>
+
+        </div>
+        <div class="flex justify-end">
+            <a th:href="@{/deleteKonu/{id}  (id = ${konu.id}) }">Konuyu sil...
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 hover:fill-red-500">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                </svg>
+            </a>
+
+        </div>
+    </div>
+    <div class="flex border-4 hover:bg-blue-100 ">
+        <a class="py-100 mx-auto text-2xl " href="/home">AnaSayfa</a>
+    </div>
+    <br>
+    <div class="flex border-4 hover:bg-red-100 ">
+        <a class="py-100 mx-auto text-2xl " href="/logout">Oturumu Kapat</a>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</body>
+
+</html>

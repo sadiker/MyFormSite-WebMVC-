@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa-FormSite</title>
+    <link class="rounded-full" rel="shortcut icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg/220px-Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg"
+        type="image/x-icon">
+</head>
+
+<body id="body">
+    <div class="flex">
+        <img class="w-20 p-2 rounded-full"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg/220px-Buteo_buteo_1_%28Lukasz_Lukasik%29.jpg"
+            alt="Logo vardı">
+        <span>𝓈𝒶𝒽𝒾𝓃ℱℴ𝓇𝓂</span>
+    </div>
+    <div>
+        <div class="flex justify-between py-4 m-3 
+          rounded text-1xl  ">
+            <a class="hover:underline  " href="/createUser">ｙｅｎｉ ｋｕｌｌａｎｉｃｉ</a>
+            <a class="hover:underline " href="/showAllUser">ｋｕｌｌａｎｉｃｉｌａｒｉ ｇｏｒ</a>
+            <a class="hover:underline " href="/createKonu">ｋｏｎｕ ｂａｓｌｉｇｉ ａｃ</a>
+            <a class="hover:underline " href="/showAllKonu">ｋｏｎｕｌａｒａ ｂａｋ</a>
+            <a class="hover:underline " href="/login">🅶🅸🆁🅸🆂</a>
+            <a class="hover:underline " href="/logout">🅲🅸🅺🅸🆂</a>
+        </div>
+        <hr class="border-4 border-blue-300 cursor-pointer hover:border-blue-500 duration-500">
+    </div>
+    <div class="h-20"></div>
+    <div class="flex justify-between">
+        <div id="konular" class="">
+            <h1 class="text-2xl"> ｒａｓｔｇｅｌｅ ｋｏｎｕｌａｒ</h1>
+            <hr class="border-2 border-red-300">
+            <br>
+            <div class="text-2xl border-2 m-2 rounded-md border-blue-300 hover:border-blue-500"
+                th:each="konu : ${konular}">
+                <a th:href="@{/showKonu/{id}  (id = ${konu.id}) }">
+                    <span th:text="${konu.name}"></span>
+                    <br><br>
+                </a>
+            </div>
+            <div class="w-50 "></div>
+        </div>
+
+        <div id="yorumlar" class="">
+            <h1 class="text-2xl"> ｒａｓｔｇｅｌｅ ｙｏｒｕｍｌａｒ</h1>
+            <hr class="border-2 border-red-300">
+            <br><br>
+            <div th:each="yorum : ${yorumlar}">
+                <!-- <h1 class="text-2xl text-blue-500" th:text="${yorum.konu.name}"></h1> -->
+                <p th:text="${yorum.text}"></p>
+                <br><br>
+            </div>
+
+        </div>
+        <div id="sağtaraf" class=" bg-red-100">
+            <img src="" alt="BURASI REKLAM KISMI">
+        </div>
+
+    </div>
+    <div class="flex border-4 hover:bg-blue-100 ">
+        <a class="py-100 mx-auto text-2xl " href="#body">Sayfa Başı</a>
+    </div>
+    <br>
+    <div class="flex border-4 hover:bg-red-100 ">
+        <a class="py-100 mx-auto text-2xl " href="/logout">Oturumu Kapat</a>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+
+</html>
