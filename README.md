@@ -2,9 +2,7 @@ Spring DataJPA,Spring Security,SpringMVC,Thymeleaf,Maven,H2 Database ile gelişt
 
 Projeyi zip olarak indirin..
 
-Ayıkladıktan sonra 
-
-Herhangi bir IDE'de açın..
+Ayıkladıktan sonra  java kodu çalıştırabilen herhangi bir IDE'de açın.
 
 MyFormSiteApplication.java  sayfasında projeyi çalıştırın...
 
@@ -13,8 +11,13 @@ MyFormSiteApplication.java  sayfasında projeyi çalıştırın...
 Proje H2 inmemory database ile yapılmıştır...
 Dilerseniz application.properties ve pom.xml 'deki mysql kodlarını yorum satırından çıkarıp H2Database kodlarını yorum satırına aldıktan sonra da  çalıştırabilirsiniz..
 Bu şekilde MySql Database'te verilerin nasıl tutulduğunu da görebilirsiniz...(kendi şifre ve kullanıcı adınızı yazmayı ve form adlı bir database oluşturmayı unutmayınız..)
+
 User,Issue,Comment kayıtları hazırdır...
+
 Uygulamada bazı seçeneklere herkes tıklayabilir,bazılarına ulşamak için giriş yapmak gerekebilir,bazılarına ise ADMIN rolünde giriş yapmak gerekir..
+
 ADMIN rolünde giriş yapmak için:( KullanıcıAdı:Ali  Şifre:abc)
+
 NORMAL rolünde  giriş yapmak için:( KullanıcıAdı:Ayşe Şifre:abc)
+
 veya kendiniz de yeni kullanıcı kaydedip giriş yapabilirsiniz..Ama default olarak NORMAL rolde olacaksınız..
