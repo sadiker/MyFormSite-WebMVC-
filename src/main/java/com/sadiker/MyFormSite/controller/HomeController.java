@@ -9,10 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.sadiker.MyFormSite.models.Konu;
-import com.sadiker.MyFormSite.models.Yorum;
-import com.sadiker.MyFormSite.repository.KonuRepository;
-import com.sadiker.MyFormSite.repository.YorumRepository;
+import com.sadiker.MyFormSite.models.Issue;
+import com.sadiker.MyFormSite.models.Comment;
+import com.sadiker.MyFormSite.repository.IssueRepository;
+import com.sadiker.MyFormSite.repository.CommentRepository;
 
 @Controller
 public class HomeController {
@@ -20,53 +20,53 @@ public class HomeController {
 
     //github yorum satırı
     @Autowired
-    KonuRepository konuRepository;
+    IssueRepository issueRepository;
 
     @Autowired
-    YorumRepository yorumRepository;
+    CommentRepository commentRepository;
 
     @GetMapping(path = { "/", "", "/home" })
     public String showAll(ModelMap map) {
 
-        List<Konu> tumkonular = konuRepository.findAll();
-        List<Konu> konular = new ArrayList<Konu>();
-        forRandomMethodKonu(tumkonular, konular);
-        map.addAttribute("konular", konular);
+        List<Issue> allissues = issueRepository.findAll();
+        List<Issue> issues = new ArrayList<Issue>();
+        forRandomMethodIssue(allissues, issues);
+        map.addAttribute("issues", issues);
 
-        List<Yorum> tumyorumlar = yorumRepository.findAll();
-        List<Yorum> yorumlar = new ArrayList<Yorum>();
-        forRandomMethodYorum(tumyorumlar, yorumlar);
-        map.addAttribute("yorumlar", yorumlar);
+        List<Comment> allcomments = commentRepository.findAll();
+        List<Comment> comments = new ArrayList<Comment>();
+        forRandomMethodComment(allcomments, comments);
+        map.addAttribute("comments", comments);
         return "home";
     }
 
-    public static void forRandomMethodYorum(List<Yorum> tumyorumlar, List<Yorum> yorumlar) {
+    public static void forRandomMethodComment(List<Comment> allcomments, List<Comment> comments) {
         Random rand = new Random();
-        if (tumyorumlar.size() >= 4) {
-            int r1 = rand.nextInt(0, tumyorumlar.size());
-            int r2 = rand.nextInt(0, tumyorumlar.size());
-            int r3 = rand.nextInt(0, tumyorumlar.size());
-            int r4 = rand.nextInt(0, tumyorumlar.size());
+        if (allcomments.size() >= 4) {
+            int r1 = rand.nextInt(0, allcomments.size());
+            int r2 = rand.nextInt(0, allcomments.size());
+            int r3 = rand.nextInt(0, allcomments.size());
+            int r4 = rand.nextInt(0, allcomments.size());
 
-            yorumlar.add(tumyorumlar.get(r4));
-            yorumlar.add(tumyorumlar.get(r3));
-            yorumlar.add(tumyorumlar.get(r2));
-            yorumlar.add(tumyorumlar.get(r1));
+            comments.add(allcomments.get(r4));
+            comments.add(allcomments.get(r3));
+            comments.add(allcomments.get(r2));
+            comments.add(allcomments.get(r1));
         }
 
     }
 
-    public static void forRandomMethodKonu(List<Konu> tumkonular, List<Konu> konular) {
+    public static void forRandomMethodIssue(List<Issue> allissues, List<Issue> issues) {
 
         Random rand = new Random();
-        if (tumkonular.size() >= 3) {
-            int r1 = rand.nextInt(0, tumkonular.size());
-            int r2 = rand.nextInt(0, tumkonular.size());
-            int r3 = rand.nextInt(0, tumkonular.size());
+        if (allissues.size() >= 3) {
+            int r1 = rand.nextInt(0, allissues.size());
+            int r2 = rand.nextInt(0, allissues.size());
+            int r3 = rand.nextInt(0, allissues.size());
 
-            konular.add(tumkonular.get(r3));
-            konular.add(tumkonular.get(r2));
-            konular.add(tumkonular.get(r1));
+            issues.add(allissues.get(r3));
+            issues.add(allissues.get(r2));
+            issues.add(allissues.get(r1));
         }
 
     }

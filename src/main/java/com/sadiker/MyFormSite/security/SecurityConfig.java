@@ -28,10 +28,10 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("", "/", "/home","/createUser","/saveUser","/showAllKonu","/showKonu/**")
+                .requestMatchers("", "/", "/home","/createUser","/saveUser","/showAllIssue","/showIssue/**")
                 .permitAll()
-                .requestMatchers("/createKonu").hasAnyAuthority("NORMAL","ADMIN")
-                .requestMatchers("/showAllUser/**","/deleteKonu/**","/deleteYorum/**").hasAnyAuthority("ADMIN")
+                .requestMatchers("/createIssue").hasAnyAuthority("NORMAL","ADMIN")
+                .requestMatchers("/showAllUser/**","/deleteIssue/**","/deleteComment/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

@@ -25,14 +25,14 @@
                 <th>Şifre</th>
                 <hr class="border-3 border-red-300 cursor-pointer hover:border-red-500 duration-500">
             </tr>
-            <tr th:each="kullanici : ${tumKullanicilar}">
-                <td th:text="${kullanici.id}"></td>
-                <td th:text="${kullanici.username}"></td>
-                <td th:text="${kullanici.role}"></td>
-                <td th:text="${kullanici.gender}"></td>
-                <td th:text="${kullanici.email}"></td>
-                <td th:text="${kullanici.localDate}"></td>
-                <td th:text="${kullanici.password}"></td>
+            <tr th:each="user : ${allUsers}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.role}"></td>
+                <td th:text="${user.gender}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.localDate}"></td>
+                <td th:text="${user.password}"></td>
 
             </tr>
         </table>

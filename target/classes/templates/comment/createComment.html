@@ -92,7 +92,7 @@
 <body>
   <div class="main-block">
     <h1>Yeni Yorum</h1>
-    <form action="/saveYorum" method="post" th:object="${yeniYorum}">
+    <form action="/saveComment" method="post" th:object="${newComment}">
 
       <input type="text" th:field="*{text}" placeholder="Yorumunuzu buraya yazınız" required />
       <div class="btn-block">

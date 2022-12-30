@@ -40,8 +40,8 @@ public class UserController {
 
     @GetMapping("/showAllUser") 
     public String showAllUser(ModelMap map) {
-        List<User> tumKullanicilar = userRepository.findAll();
-        map.addAttribute("tumKullanicilar", tumKullanicilar);
+        List<User> allUsers = userRepository.findAll();
+        map.addAttribute("allUsers", allUsers);
         return "/user/showAllUser" ;
     }
     

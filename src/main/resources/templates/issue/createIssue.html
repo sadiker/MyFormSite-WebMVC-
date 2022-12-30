@@ -76,7 +76,7 @@
 <body>
     <div class="main-block">
         <h1>Yeni Konu</h1>
-        <form action="/saveKonu" method="post" th:object="${yeniKonu}">
+        <form action="/saveIssue" method="post" th:object="${newIssue}">
          
           <input type="text"  th:field="*{name}"   placeholder="Konu başlığını buraya yazınız" required/>
           <div class="btn-block">

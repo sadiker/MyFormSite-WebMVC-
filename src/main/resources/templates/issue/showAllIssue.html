@@ -12,12 +12,12 @@
 </head>
 
 <body>
-    <div th:each="konu : ${konular}" class="bg-green-100  m-5 rounded border-dashed border-slate-700 border-2">
-        <h1 class="text-3xl text-center" th:text="${konu.name}">saS</h1>
+    <div th:each="issue : ${issues}" class="bg-green-100  m-5 rounded border-dashed border-slate-700 border-2">
+        <h1 class="text-3xl text-center" th:text="${issue.name}">saS</h1>
 
         <div class=" flex justify-between p-1 ">
-            <span class="text-1xl">Konuyu açan : <p th:text="${konu.user.username}"></p> </span>
-            <a class="text-1xl" th:href="@{/createYorum/{id} (id = ${konu.id}) }">Sen de yorum yaz..
+            <span class="text-1xl">Konuyu açan : <p th:text="${issue.user.username}"></p> </span>
+            <a class="text-1xl" th:href="@{/createComment/{id} (id = ${issue.id}) }">Sen de yorum yaz..
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6 hover:fill-blue-500 ">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -26,7 +26,7 @@
             </a>
         </div>
         <div flex class=" flex justify-end ">
-            <a class="text-1xl" th:href="@{/showKonu/{id} (id = ${konu.id}) }">Yorumlara bak..
+            <a class="text-1xl" th:href="@{/showIssue/{id} (id = ${issue.id}) }">Yorumlara bak..
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6 hover:fill-yellow-500">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -37,7 +37,7 @@
 
         </div>
         <div class="flex justify-end">
-            <a th:href="@{/deleteKonu/{id}  (id = ${konu.id}) }">Konuyu sil...
+            <a th:href="@{/deleteIssue/{id}  (id = ${issue.id}) }">Konuyu sil...
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6 hover:fill-red-500">
                     <path stroke-linecap="round" stroke-linejoin="round"

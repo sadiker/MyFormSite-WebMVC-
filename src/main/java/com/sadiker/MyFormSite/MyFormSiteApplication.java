@@ -10,24 +10,24 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.sadiker.MyFormSite.models.Konu;
+import com.sadiker.MyFormSite.models.Issue;
 import com.sadiker.MyFormSite.models.User;
-import com.sadiker.MyFormSite.models.Yorum;
-import com.sadiker.MyFormSite.repository.KonuRepository;
+import com.sadiker.MyFormSite.models.Comment;
+import com.sadiker.MyFormSite.repository.IssueRepository;
 import com.sadiker.MyFormSite.repository.UserRepository;
-import com.sadiker.MyFormSite.repository.YorumRepository;
+import com.sadiker.MyFormSite.repository.CommentRepository;
 
 @SpringBootApplication
 public class MyFormSiteApplication {
 
 	@Autowired
-	KonuRepository konurepo;
+	IssueRepository issuerepo;
 
 	@Autowired
 	UserRepository userrepo;
 
 	@Autowired
-	YorumRepository yorumrepo;
+	CommentRepository commentrepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MyFormSiteApplication.class, args);
@@ -38,12 +38,12 @@ public class MyFormSiteApplication {
 		return new CommandLineRunner() {
 			@Override
 			public void run(String... args) throws Exception {
-				fullfillDatabase(passwordEncoder, yorumrepo, userrepo, konurepo);
+				fullfillDatabase(passwordEncoder, commentrepo, userrepo, issuerepo);
 
 			}
 
-			public static void fullfillDatabase(PasswordEncoder passwordEncoder, YorumRepository yorumrepo,
-					UserRepository userrepo, KonuRepository konurepo) {
+			public static void fullfillDatabase(PasswordEncoder passwordEncoder, CommentRepository commentrepo,
+					UserRepository userrepo, IssueRepository issuerepo) {
 
 				User user1 = new User();
 				user1.setEmail("ali@gmail.com");
@@ -62,114 +62,114 @@ public class MyFormSiteApplication {
 				user2.setPassword(passwordEncoder.encode("abc"));
 				user2.setLocalDate(LocalDate.of(2001, 2, 2));
 
-				Konu konu1 = new Konu();
-				konu1.setName("Sporda bu hafta neler olacak");
-				konu1.setUser(user1);
-				konu1.setYorumlar(new ArrayList<Yorum>());
+				Issue issue1 = new Issue();
+				issue1.setName("Sporda bu hafta neler olacak");
+				issue1.setUser(user1);
+				issue1.setComments(new ArrayList<Comment>());
 
-				Konu konu2 = new Konu();
-				konu2.setName("Araba piyasası nasıl..");
-				konu2.setUser(user1);
-				konu2.setYorumlar(new ArrayList<Yorum>());
-
-
-				Konu konu3 = new Konu();
-				konu3.setName("Ekonomide ne var?");
-				konu3.setUser(user2);
-				konu3.setYorumlar(new ArrayList<Yorum>());
+				Issue issue2 = new Issue();
+				issue2.setName("Araba piyasası nasıl..");
+				issue2.setUser(user1);
+				issue2.setComments(new ArrayList<Comment>());
 
 
-				Konu konu4 = new Konu();
-				konu4.setName("Magazin dünyasında sürprizler");
-				konu4.setUser(user2);
-				konu4.setYorumlar(new ArrayList<Yorum>());
+				Issue issue3 = new Issue();
+				issue3.setName("Ekonomide ne var?");
+				issue3.setUser(user2);
+				issue3.setComments(new ArrayList<Comment>());
 
 
-				Konu konu5 = new Konu();
-				konu5.setName("Dış haberlerde son dakika ");
-				konu5.setUser(user1);
-				konu5.setYorumlar(new ArrayList<Yorum>());
+				Issue issue4 = new Issue();
+				issue4.setName("Magazin dünyasında sürprizler");
+				issue4.setUser(user2);
+				issue4.setComments(new ArrayList<Comment>());
 
 
-				Yorum yorum1 = new Yorum();
-				yorum1.setText("........yorum1.....");
-				yorum1.setUser(user1);
-				yorum1.setKonu(konu1);
-				konu1.getYorumlar().add(yorum1);
+				Issue issue5 = new Issue();
+				issue5.setName("Dış haberlerde son dakika ");
+				issue5.setUser(user1);
+				issue5.setComments(new ArrayList<Comment>());
 
-				Yorum yorum2 = new Yorum();
-				yorum2.setText("........yorum2.....");
-				yorum2.setUser(user2);
-				yorum2.setKonu(konu1);
-				konu1.getYorumlar().add(yorum2);
 
-				Yorum yorum3 = new Yorum();
-				yorum3.setText("........yorum3.....");
-				yorum3.setUser(user2);
-				yorum3.setKonu(konu2);
-				konu2.getYorumlar().add(yorum3);
+				Comment comment1 = new Comment();
+				comment1.setText("........yorum1.....");
+				comment1.setUser(user1);
+				comment1.setIssue(issue1);
+				issue1.getComments().add(comment1);
+
+				Comment comment2 = new Comment();
+				comment2.setText("........yorum2.....");
+				comment2.setUser(user2);
+				comment2.setIssue(issue1);
+				issue1.getComments().add(comment2);
+
+				Comment comment3 = new Comment();
+				comment3.setText("........yorum3.....");
+				comment3.setUser(user2);
+				comment3.setIssue(issue2);
+				issue2.getComments().add(comment3);
 				
-				Yorum yorum4 = new Yorum();
-				yorum4.setText("........yorum4.....");
-				yorum4.setUser(user1);
-				yorum4.setKonu(konu2);
-				konu2.getYorumlar().add(yorum4);
+				Comment comment4 = new Comment();
+				comment4.setText("........yorum4.....");
+				comment4.setUser(user1);
+				comment4.setIssue(issue2);
+				issue2.getComments().add(comment4);
 				
-				Yorum yorum5 = new Yorum();
-				yorum5.setText("........yorum5.....");
-				yorum5.setUser(user1);
-				yorum5.setKonu(konu3);
-				konu3.getYorumlar().add(yorum5);
+				Comment comment5 = new Comment();
+				comment5.setText("........yorum5.....");
+				comment5.setUser(user1);
+				comment5.setIssue(issue3);
+				issue3.getComments().add(comment5);
 				
-				Yorum yorum6 = new Yorum();
-				yorum6.setText("........yorum6.....");
-				yorum6.setUser(user2);
-				yorum6.setKonu(konu3);
-				konu3.getYorumlar().add(yorum6);
+				Comment comment6 = new Comment();
+				comment6.setText("........yorum6.....");
+				comment6.setUser(user2);
+				comment6.setIssue(issue3);
+				issue3.getComments().add(comment6);
 
-				Yorum yorum7 = new Yorum();
-				yorum7.setText("........yorum7.....");
-				yorum7.setUser(user1);
-				yorum7.setKonu(konu4);
-				konu4.getYorumlar().add(yorum7);
+				Comment comment7 = new Comment();
+				comment7.setText("........yorum7.....");
+				comment7.setUser(user1);
+				comment7.setIssue(issue4);
+				issue4.getComments().add(comment7);
 				
-				Yorum yorum8 = new Yorum();
-				yorum8.setText("........yorum8.....");
-				yorum8.setUser(user2);
-				yorum8.setKonu(konu4);
-				konu4.getYorumlar().add(yorum8);
+				Comment comment8 = new Comment();
+				comment8.setText("........yorum8.....");
+				comment8.setUser(user2);
+				comment8.setIssue(issue4);
+				issue4.getComments().add(comment8);
 
-				Yorum yorum9 = new Yorum();
-				yorum9.setText("........yorum9.....");
-				yorum9.setUser(user1);
-				yorum9.setKonu(konu5);
-				konu5.getYorumlar().add(yorum9);
+				Comment comment9 = new Comment();
+				comment9.setText("........yorum9.....");
+				comment9.setUser(user1);
+				comment9.setIssue(issue5);
+				issue5.getComments().add(comment9);
 
-				Yorum yorum10 = new Yorum();
-				yorum10.setText("........yorum10.....");
-				yorum10.setUser(user2);
-				yorum10.setKonu(konu5);
-				konu5.getYorumlar().add(yorum10);
+				Comment comment10 = new Comment();
+				comment10.setText("........yorum10.....");
+				comment10.setUser(user2);
+				comment10.setIssue(issue5);
+				issue5.getComments().add(comment10);
 
 				userrepo.save(user1);
 				userrepo.save(user2);
 
-				konurepo.save(konu1);
-				konurepo.save(konu2);
-				konurepo.save(konu3);
-				konurepo.save(konu4);
-				konurepo.save(konu5);
+				issuerepo.save(issue1);
+				issuerepo.save(issue2);
+				issuerepo.save(issue3);
+				issuerepo.save(issue4);
+				issuerepo.save(issue5);
 
-				yorumrepo.save(yorum1);
-				yorumrepo.save(yorum2);
-				yorumrepo.save(yorum3);
-				yorumrepo.save(yorum4);
-				yorumrepo.save(yorum5);
-				yorumrepo.save(yorum6);
-				yorumrepo.save(yorum7);
-				yorumrepo.save(yorum8);
-				yorumrepo.save(yorum9);
-				yorumrepo.save(yorum10);
+				commentrepo.save(comment1);
+				commentrepo.save(comment2);
+				commentrepo.save(comment3);
+				commentrepo.save(comment4);
+				commentrepo.save(comment5);
+				commentrepo.save(comment6);
+				commentrepo.save(comment7);
+				commentrepo.save(comment8);
+				commentrepo.save(comment9);
+				commentrepo.save(comment10);
 			}
 
 		};

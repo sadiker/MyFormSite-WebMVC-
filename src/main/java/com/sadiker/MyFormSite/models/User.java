@@ -28,17 +28,17 @@ public class User {
     private LocalDate localDate;
 
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private List<Konu> konular;
+    private List<Issue> issues;
 
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private List<Yorum> yorumlar;
+    private List<Comment> comments;
 
     public String getGender() {
         return gender;
     }
 
-    public void setGender(String cinsiyet) {
-        this.gender = cinsiyet;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getEmail() {
@@ -81,20 +81,20 @@ public class User {
         this.username = name;
     }
 
-    public List<Konu> getKonular() {
-        return konular;
+    public List<Issue> getIssues() {
+        return issues;
     }
 
-    public void setKonular(List<Konu> konular) {
-        this.konular = konular;
+    public void setIssues(List<Issue> issues) {
+        this.issues = issues;
     }
 
-    public List<Yorum> getYorumlar() {
-        return yorumlar;
+    public List<Comment> getComments() {
+        return comments;
     }
 
-    public void setYorumlar(List<Yorum> yorumlar) {
-        this.yorumlar = yorumlar;
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     public LocalDate getLocalDate() {

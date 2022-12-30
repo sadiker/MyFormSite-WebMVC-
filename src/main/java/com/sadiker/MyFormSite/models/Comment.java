@@ -1,34 +1,35 @@
 package com.sadiker.MyFormSite.models;
 
-import java.util.List;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 
+
 @Entity
-@Table(name="konular")
-public class Konu {
+@Table(name="yorumlar")
+public class Comment {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,length = 100)
+    @Column(nullable = false,length = 255)
+    private String text;
+
     private String name;
-
-    @OneToMany(mappedBy = "konu",fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
-    private List<Yorum> yorumlar;
-
+    
+    
+    @ManyToOne()
+    private Issue issue;
+    
     @ManyToOne()
     private User user ;
+
+    
 
     public Long getId() {
         return id;
@@ -38,20 +39,20 @@ public class Konu {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getText() {
+        return text;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public List<Yorum> getYorumlar() {
-        return yorumlar;
+    public Issue getIssue() {
+        return issue;
     }
 
-    public void setYorumlar(List<Yorum> yorumlar) {
-        this.yorumlar = yorumlar;
+    public void setIssue(Issue issue) {
+        this.issue = issue;
     }
 
     public User getUser() {
@@ -62,7 +63,15 @@ public class Konu {
         this.user = user;
     }
 
-    
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    
     
 }

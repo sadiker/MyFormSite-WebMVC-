@@ -23,8 +23,8 @@
           rounded text-1xl  ">
             <a class="hover:underline  " href="/createUser">ｙｅｎｉ ｋｕｌｌａｎｉｃｉ</a>
             <a class="hover:underline " href="/showAllUser">ｋｕｌｌａｎｉｃｉｌａｒｉ ｇｏｒ</a>
-            <a class="hover:underline " href="/createKonu">ｋｏｎｕ ｂａｓｌｉｇｉ ａｃ</a>
-            <a class="hover:underline " href="/showAllKonu">ｋｏｎｕｌａｒａ ｂａｋ</a>
+            <a class="hover:underline " href="/createIssue">ｋｏｎｕ ｂａｓｌｉｇｉ ａｃ</a>
+            <a class="hover:underline " href="/showAllIssue">ｋｏｎｕｌａｒａ ｂａｋ</a>
             <a class="hover:underline " href="/login">🅶🅸🆁🅸🆂</a>
             <a class="hover:underline " href="/logout">🅲🅸🅺🅸🆂</a>
         </div>
@@ -32,27 +32,27 @@
     </div>
     <div class="h-20"></div>
     <div class="flex justify-between">
-        <div id="konular" class="">
+        <div id="issues" class="">
             <h1 class="text-2xl"> ｒａｓｔｇｅｌｅ ｋｏｎｕｌａｒ</h1>
             <hr class="border-2 border-red-300">
             <br>
             <div class="text-2xl border-2 m-2 rounded-md border-blue-300 hover:border-blue-500"
-                th:each="konu : ${konular}">
-                <a th:href="@{/showKonu/{id}  (id = ${konu.id}) }">
-                    <span th:text="${konu.name}"></span>
+                th:each="issue : ${issues}">
+                <a th:href="@{/showIssue/{id}  (id = ${issue.id}) }">
+                    <span th:text="${issue.name}"></span>
                     <br><br>
                 </a>
             </div>
             <div class="w-50 "></div>
         </div>
 
-        <div id="yorumlar" class="">
+        <div id="comments" class="">
             <h1 class="text-2xl"> ｒａｓｔｇｅｌｅ ｙｏｒｕｍｌａｒ</h1>
             <hr class="border-2 border-red-300">
             <br><br>
-            <div th:each="yorum : ${yorumlar}">
-                <h3 class="text-2xl text-blue-500" th:text="${yorum.konu.name}"></h3>
-                <p th:text="${yorum.text}"></p>
+            <div th:each="comment : ${comments}">
+                <h3 class="text-2xl text-blue-500" th:text="${comment.issue.name}"></h3>
+                <p th:text="${comment.text}"></p>
                 <br><br>
             </div>
 
