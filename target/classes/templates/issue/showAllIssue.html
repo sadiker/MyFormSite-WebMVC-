@@ -13,7 +13,7 @@
 
 <body>
     <div th:each="issue : ${issues}" class="bg-green-100  m-5 rounded border-dashed border-slate-700 border-2">
-        <h1 class="text-3xl text-center" th:text="${issue.name}">saS</h1>
+        <h1 class="text-3xl text-center" th:text="${issue.name}"></h1>
 
         <div class=" flex justify-between p-1 ">
             <span class="text-1xl">Konuyu açan : <p th:text="${issue.user.username}"></p> </span>

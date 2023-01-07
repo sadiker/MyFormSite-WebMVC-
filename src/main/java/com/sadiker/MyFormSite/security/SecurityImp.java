@@ -18,7 +18,12 @@ public class SecurityImp implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = urepo.findByUsername(username);
-        return new CustomUser(user);
+        if(user!=null) {
+            return new CustomUser(user);
+        } else {
+            return  new CustomUser(new User());
+        }
+       
     }
 
 }

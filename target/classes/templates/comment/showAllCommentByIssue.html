@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <h1 class="text-5xl text-center" th:text="${konuAdi}">!!!</h1>
+    <h1 class="text-5xl text-center" th:text="${issueName}">!!!</h1>
     <div th:each="comment : ${comments}" class="bg-green-100 p-5 m-5 rounded border-dashed border-slate-700 border-2">
         <div >
             <span class="text-2xl">Yorum : <p th:text="${comment.text}"></p> </span>
