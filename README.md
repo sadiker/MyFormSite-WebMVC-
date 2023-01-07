@@ -1,6 +1,6 @@
 # Form Sitesi Web MVC Denemesi
 ## Kullanıcıların istedikleri konularda yorum yapabilecekleri veya kendi konularını oluşturabilecekleri bir  form sitesidir.
-## Java,Spring DataJPA,Spring Security,SpringMVC,Thymeleaf,Maven,H2 Database,Html,Css,Hibernate,MySql ile geliştirilmiştir
+## Java,Spring DataJPA,Spring Security,SpringMVC,Thymeleaf,Maven,H2 Database,Html,Tailwindcss,Hibernate,MySql ile geliştirilmiştir
 ### Uygulamada bazı seçeneklere herkes tıklayabilir,bazılarına ulaşmak için giriş yapmak gerekebilir,bazılarına ise ADMIN rolünde giriş yapmak gerekir..
 ### ADMIN rolünde giriş yapmak için:( KullanıcıAdı:Ali Şifre:abc)
 ### NORMAL rolünde giriş yapmak için:( KullanıcıAdı:Ayşe Şifre:abc)
